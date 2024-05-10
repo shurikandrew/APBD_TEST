@@ -20,7 +20,7 @@ public class BookRepository : IBookRepository
         command.Connection = connection;
         command.CommandText = "SELECT b.PK, b.title, be.edition_title, ph.name, be.release_date FROM books b " +
                               "JOIN books_editions be ON b.PK = be.FK_book " +
-                              "JOIN publishing_houses ph ON ph.PK = be.FK_publishing_house" +
+                              "JOIN publishing_houses ph ON ph.PK = be.FK_publishing_house " +
                               "WHERE b.PK = @Id";
         command.Parameters.AddWithValue("@Id", id);
         var reader = command.ExecuteReader();
